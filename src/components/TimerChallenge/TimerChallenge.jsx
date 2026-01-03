@@ -21,11 +21,13 @@ const TimerChallenge = ({ tittle, targetTime }) => {
   //constant to know if timer is active or not.
   const timerIsActive = timeRemaining > 0 && timeRemaining < targetTime * 1000;
 
-  //condition to check if there is need to stop the timer and show modal.
+  /*condition to check if there is need to stop the timer and show modal
+  this will automatically show modal if you wear not able to stop timer at intended time*/
   if (timeRemaining <= 0) {
     clearInterval(timerId.current);
     dialog.current.showModal();
   }
+  // function to stop timer, it basically for the dialog form when we will submit it on button click.
   const handleReset = () => {
     setTimeRemaining(targetTime * 1000);
   };
